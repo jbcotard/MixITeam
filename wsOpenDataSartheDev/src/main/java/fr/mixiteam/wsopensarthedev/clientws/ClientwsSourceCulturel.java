@@ -59,9 +59,18 @@ public class ClientwsSourceCulturel {
 				JSONObject item = (JSONObject) data.get(i);
 				String type = String.valueOf(item.get("Type"));
 
+				
 				if (!type.equals("null")) {
+					//Separation des types contenant une liste separée par des ##
+					if(type.contains("##")){						
+						String[] typePrecis=type.split("##");
+						for(int j=0;j<typePrecis.length;j++)
+						{
+							listeTypes.add(typePrecis[j]);
+						}
+					}else{
 					listeTypes.add(type);
-					System.out.println(type);
+					}
 				}
 			}
 		} catch (HttpException e) {
@@ -76,58 +85,4 @@ public class ClientwsSourceCulturel {
 
 		return listeTypes;
 	}
-
-	public String getTest() {
-		String res = "";
-
-		try {
-
-			// Create an instance of HttpClient.
-			HttpClient client = new HttpClient();
-
-			// Create a method instance.
-			GetMethod method = new GetMethod(URL_EVENEMENTIELLE);
-
-			// Provide custom retry handler is necessary
-			method.getParams().setParameter(HttpMethodParams.RETRY_HANDLER,
-					new DefaultHttpMethodRetryHandler(3, false));
-
-			method.setQueryString(URIUtil
-					.encodeQuery("$format=json&$select=NomOffre&$filter=(TarifGratuit eq null or TarifGratuit eq false) and indexof(Commune ,'Mans') gt -1"));
-
-			// Execute the method.
-			int statusCode = client.executeMethod(method);
-
-			if (statusCode != HttpStatus.SC_OK) {
-				System.err.println("Method failed: " + method.getStatusLine());
-			}
-
-			// Read the response body.
-			byte[] responseBody = method.getResponseBody();
-
-			// System.out.println(new String(responseBody));
-			res = new String(responseBody);
-
-			//
-			// JSONObject jsonObject = new JSONObject(res);
-			//
-			// JSONObject data = (JSONObject) jsonObject.get("data");
-			// final String nomOffre = (String) data.get("Categorie");
-			//
-
-		} catch (HttpException e) {
-			System.err.println("Fatal protocol violation: " + e.getMessage());
-			e.printStackTrace();
-		} catch (Exception e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-
-		} finally {
-			// Release the connection.
-			// method.releaseConnection();
-		}
-
-		return res;
-	}
-
 }
