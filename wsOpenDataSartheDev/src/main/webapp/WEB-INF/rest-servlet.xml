@@ -18,6 +18,9 @@
 	<bean id="jsonProvider" 
 		class="org.codehaus.jackson.jaxrs.JacksonJsonProvider"/>
 	
+	<bean id="testService" class="fr.mixiteam.wsopensarthedev.clientws.ClientwsSource1"></bean>
+	
+	
   	<jaxrs:server id="evenementrs" address="/rservice">
   		<jaxrs:serviceBeans>
   			<ref bean="evenementService"/>
@@ -26,5 +29,15 @@
 			<ref bean="jsonProvider" />
 		</jaxrs:providers>
   	</jaxrs:server>
+
+  	<jaxrs:server id="test" address="/testService">
+  		<jaxrs:serviceBeans>
+  			<ref bean="testService"/>
+  		</jaxrs:serviceBeans>
+  		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+  	</jaxrs:server>
+
 
 </beans>
