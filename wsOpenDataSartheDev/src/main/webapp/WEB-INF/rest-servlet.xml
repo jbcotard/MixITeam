@@ -23,7 +23,7 @@
   			<ref bean="evenementService"/>
   		</jaxrs:serviceBeans>
   		<jaxrs:providers>
-			<ref bean='jsonProvider' />
+			<ref bean="jsonProvider" />
 		</jaxrs:providers>
   	</jaxrs:server>
 
