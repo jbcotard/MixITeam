@@ -1,0 +1,20 @@
+URL Acces : 
+
+http://wcf.tourinsoft.com/Syndication/3.0/cdt72/e9a8e2bf-c933-4831-9ebb-87eec559a21a/Objects?$format=json
+
+Liste des champs dispos : 
+  - SyndicObjectName
+  - GmapLatitude
+  - GmapLongitude
+  - Commune
+  - Adresse1
+  - Adresse2
+  - CodePostal
+  - Adresse3
+  - Adresse1Suitea
+  - Cedex
+  - NomOffre
+  - Categorie/ThesLibelle
+  - TarifGratuit
+
+Liste des champs utiliser pour le filtrage
