@@ -88,20 +88,20 @@ public class EvenementCore
 		//ws1
 		List<Evenement> listeWs1 = new ArrayList<Evenement>();
 		Evenement e1= new Evenement();
-		e1.setId(1);
-		e1.setName("toto");
+		e1.setId("1");
+		e1.setNameEvenement("toto");
 		listeWs1.add(e1);
 		listeEvenementsFinale.addAll(listeWs1);
 
 		//ws2
 		List<Evenement> listeWs2 = new ArrayList<Evenement>();
 		Evenement e2= new Evenement();
-		e2.setId(1);
-		e2.setName("toto");
+		e2.setId("1");
+		e2.setNameEvenement("toto");
 		listeWs2.add(e2);
 		Evenement e3= new Evenement();
-		e3.setId(1);
-		e3.setName("toto");
+		e3.setId("1");
+		e3.setNameEvenement("toto");
 		listeWs2.add(e3);
 		listeEvenementsFinale.addAll(listeWs2);
 
@@ -116,7 +116,7 @@ public class EvenementCore
 	public static Evenement getEvenement(String id) 
 	{
 		// requete de tous les ws pour recuperer les infos de l'evenement
-		Evenement evenement = new Evenement(Integer.parseInt(id), "toto");
+		Evenement evenement = new Evenement(id, "toto","Le Mans");
 
 		// ws1
 		// evenement = search id sur ws1

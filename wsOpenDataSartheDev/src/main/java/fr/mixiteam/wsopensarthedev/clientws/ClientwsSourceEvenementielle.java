@@ -13,6 +13,8 @@ import org.apache.commons.httpclient.util.URIUtil;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import fr.mixiteam.wsopensarthedev.modele.Evenement;
+
 public class ClientwsSourceEvenementielle {
 
 	private static String URL_EVENEMENTIELLE = "http://wcf.tourinsoft.com/Syndication/3.0/cdt72/e9a8e2bf-c933-4831-9ebb-87eec559a21a/Objects";
@@ -79,6 +81,70 @@ public class ClientwsSourceEvenementielle {
 		return listeTypes;
 	}
 
+
+	public static List<Evenement> getListeActivite(String type) {
+
+		String res = "";
+		ArrayList<Evenement> listeEvenement = new ArrayList<Evenement>();
+		GetMethod method = null;
+		
+		try {
+
+			// Create an instance of HttpClient.
+			HttpClient client = new HttpClient();
+
+			// Create a method instance.
+			method = new GetMethod(URL_EVENEMENTIELLE);
+
+			// Provide custom retry handler is necessary
+			method.getParams().setParameter(HttpMethodParams.RETRY_HANDLER,
+					new DefaultHttpMethodRetryHandler(3, false));
+
+			method.setQueryString(URIUtil.encodeQuery("$format=json&$select=NomOffre,Commune,SyndicStructureId&$filter=indexof(Categorie/ThesLibelle,'"+type+"') gt -1 "));
+
+			// Execute the method.
+			int statusCode = client.executeMethod(method);
+
+			if (statusCode != HttpStatus.SC_OK) {
+				System.err.println("Method failed: " + method.getStatusLine());
+			}
+
+			// Read the response body.
+			byte[] responseBody = method.getResponseBody();
+
+			// System.out.println(new String(responseBody));
+			res = new String(responseBody);
+
+			System.out.println(res);
+			
+			JSONObject jsonObject = new JSONObject(res);
+
+			JSONArray data = (JSONArray) jsonObject.get("value");
+
+			for (int i = 0; i < data.length(); i++) {
+				JSONObject item = (JSONObject) data.get(i);
+				
+				Evenement evenement=new Evenement();
+				evenement.setId(String.valueOf(item.get("SyndicStructureId")));
+				evenement.setCommune(String.valueOf(item.get("Commune")));
+				evenement.setNameEvenement(String.valueOf(item.get("NomOffre")));
+
+				listeEvenement.add(evenement);
+			}
+		} catch (HttpException e) {
+			System.err.println("Fatal protocol violation: " + e.getMessage());
+			e.printStackTrace();
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		} finally {
+			// Release the connection.
+			 method.releaseConnection();
+		}
+
+		return listeEvenement;
+	}
+	
+	
 	public String getTest() {
 		String res = "";
 
