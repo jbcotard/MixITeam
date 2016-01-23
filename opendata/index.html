@@ -40,15 +40,34 @@
           <a class="navbar-brand" href="#">Open D@t@</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
-
         </div><!--/.nav-collapse -->
       </div>
     </nav>
+	<div style="background-color:#aa0000;color:white;padding-left:6px;font-size:14px;height:20px;"><div id="tagWeightContainer" style="display:none;"><span id="tagWeight"></span>&nbsp;résultats pour&nbsp;<span id="tagName"></span></div></div>
 
     <div>
-		<div id="tagCloud" style="border:0px solid black;text-align:left;margin-left:auto;margin-right:auto;"></div>
+		<div id="tagCloud" style="margin-top:24px;border:0px solid black;text-align:left;margin-left:auto;margin-right:auto;"></div>
+		<div id="results" style="display:none;margin-left:36px;">
+			<div id="selectedTag">
+				<div style="border-bottom:2px solid grey;">
+					<h3 id="selectedTagTitle" style="color:#808080"></h3>
+				</div>
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Nom</th>
+							<th>Ville</th>
+						</tr>
+					</thead>
+					<tbody id="resultsTbody"></tbody>
+				</table>
+			</div>
+		</div>
     </div>
 
+
+	
     <!-- Bootstrap core JavaScript ------------------------------------------------------------------------- -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
