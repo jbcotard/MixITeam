@@ -11,7 +11,7 @@
 		<cxf.version>3.0.3</cxf.version>
 		<httpclient.version>3.1</httpclient.version>
 		<jax.ws.rs>2.0.1</jax.ws.rs>
-		<springmvc>4.1.4.RELEASE</springmvc>
+		<springmvc>3.2.0.RELEASE</springmvc>
 		<jackson.version>1.1.1</jackson.version>
 	</properties>
 	<dependencies>
@@ -31,7 +31,11 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${springmvc}</version>
 		</dependency>
-
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-core</artifactId>
+		    <version>${springmvc}</version>
+		</dependency>
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-frontend-jaxrs</artifactId>
@@ -41,6 +45,11 @@
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-transports-http</artifactId>
 			<version>${cxf.version}</version>
+		</dependency>
+		<dependency>
+		  <groupId>org.apache.cxf</groupId>
+		  <artifactId>cxf-rt-rs-service-description</artifactId>
+		  <version>${cxf.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>commons-httpclient</groupId>
@@ -63,12 +72,6 @@
 			<version>3.8.1</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
   </dependencies>
   <build>
     <finalName>wsopendatasarthedev</finalName>
