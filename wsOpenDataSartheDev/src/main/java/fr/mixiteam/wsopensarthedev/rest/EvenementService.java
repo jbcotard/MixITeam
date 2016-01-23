@@ -13,6 +13,7 @@ import javax.ws.rs.core.MediaType;
 
 import fr.mixiteam.wsopensarthedev.modele.Evenement;
 
+
 @Path("/Evenementservice/")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
