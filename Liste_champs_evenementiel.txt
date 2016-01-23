@@ -1,0 +1,29 @@
+URL Acces : 
+
+<path_uri> -> http://wcf.tourinsoft.com/Syndication/3.0/cdt72/e9a8e2bf-c933-4831-9ebb-87eec559a21a/Objects?$format=json
+
+Liste des champs dispos : 
+  - SyndicObjectName
+  - GmapLatitude
+  - GmapLongitude
+  - Commune
+  - Adresse1
+  - Adresse2
+  - CodePostal
+  - Adresse3
+  - Adresse1Suite
+  - Cedex
+  - NomOffre
+  - Categorie/ThesLibelle
+  - TarifGratuit
+
+<path_select> -> <path_uri>&$select=SyndicObjectName,GmapLatitude,GmapLongitude,Commune,Adresse1,Adresse2,CodePostal,Adresse3,Adresse1Suite,Cedex,NomOffre,Categorie,TarifGratuit
+
+Liste des champs utiliser pour le filtrage
+  - Commune -> <path_select>&$filter=Commune eq 'Le Mans'  -  <path_select>&$filter=indexof(Commune,'Mans') gt -1  
+  - NomOffre -> <path_select>&$filter=NomOffre eq 'THEATRE : "DE QUOI PARLEZ-VOUS ?"'  -  <path_select>&$filter=indexof(NomOffre,'parlez') gt -1  
+  - TarifGratuit (valeurs possibles : null-true-false) ->  <path_select>&$filter=(TarifGratuit eq null or TarifGratuit eq false)
+  - Categorie/ThesLibelle : <path_select>&$filter=indexof(Categorie/ThesLibelle,'Festival') gt -1
+  
+  
+Exemples complexes : <path_select>&$filter=(TarifGratuit eq null or TarifGratuit eq false) and indexof(Commune ,'Mans') gt -1
