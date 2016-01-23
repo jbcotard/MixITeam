@@ -6,11 +6,13 @@ import java.util.List;
 import java.util.Map;
 
 
+import fr.mixiteam.wsopensarthedev.clientws.ClientwsSourceCulturel;
+import fr.mixiteam.wsopensarthedev.clientws.ClientwsSourceEvenementielle;
 import fr.mixiteam.wsopensarthedev.modele.Evenement;
 import fr.mixiteam.wsopensarthedev.modele.TypeEvenement;
 
 /**
- * Récupère les données des clients ws et merge les résultats
+ * Rï¿½cupï¿½re les donnï¿½es des clients ws et merge les rï¿½sultats
  * @author user
  *
  */
@@ -18,7 +20,7 @@ public class EvenementCore
 {
 
 	/**
-	 * Récupère la liste des types d'évènements
+	 * Rï¿½cupï¿½re la liste des types d'ï¿½vï¿½nements
 	 * @return
 	 */
 	public static List<TypeEvenement> getTypeEvenement()
@@ -27,19 +29,19 @@ public class EvenementCore
 		List<TypeEvenement> typeEvenementsFinal = new ArrayList<TypeEvenement>();
 
 		//Appel au ws 1
-		List<String> liste1 = new ArrayList<String>();
-		liste1.add("Concert");
-		liste1.add("Concert");
-		liste1.add("Opera");
-		liste1.add("Cinéma");
-		liste1.add("Parachute");
+		List<String> liste1 = ClientwsSourceEvenementielle.getType();
+//		liste1.add("Concert");
+//		liste1.add("Concert");
+//		liste1.add("Opera");
+//		liste1.add("Cinï¿½ma");
+//		liste1.add("Parachute");
 		//Appel au ws 2
-		List<String> liste2 = new ArrayList<String>();
-		liste2.add("Opera");
-		liste2.add("Parachute");
-		liste2.add("Concert");
+		List<String> liste2 = ClientwsSourceCulturel.getType();
+//		liste2.add("Opera");
+//		liste2.add("Parachute");
+//		liste2.add("Concert");
 
-		//Parcours et comptage des categories d'évenement
+		//Parcours et comptage des categories d'ï¿½venement
 		//liste 1
 		for (String categorie : liste1) 
 		{
@@ -82,27 +84,27 @@ public class EvenementCore
 	 */
 	public static List<Evenement> searchEvenements(String type) 
 	{
-		//requete de recherche des events à tous les ws par type
+		//requete de recherche des events ï¿½ tous les ws par type
 		List<Evenement> listeEvenementsFinale = new ArrayList<Evenement>();
 
 		//ws1
-		List<Evenement> listeWs1 = new ArrayList<Evenement>();
-		Evenement e1= new Evenement();
-		e1.setId("1");
-		e1.setNameEvenement("toto");
-		listeWs1.add(e1);
+		List<Evenement> listeWs1 = ClientwsSourceEvenementielle.getListeActivite(type);
+//		Evenement e1= new Evenement();
+//		e1.setId("1");
+//		e1.setNameEvenement("toto");
+//		listeWs1.add(e1);
 		listeEvenementsFinale.addAll(listeWs1);
 
 		//ws2
-		List<Evenement> listeWs2 = new ArrayList<Evenement>();
-		Evenement e2= new Evenement();
-		e2.setId("1");
-		e2.setNameEvenement("toto");
-		listeWs2.add(e2);
-		Evenement e3= new Evenement();
-		e3.setId("1");
-		e3.setNameEvenement("toto");
-		listeWs2.add(e3);
+		List<Evenement> listeWs2 = ClientwsSourceCulturel.getListeActivite(type);
+//		Evenement e2= new Evenement();
+//		e2.setId("1");
+//		e2.setNameEvenement("toto");
+//		listeWs2.add(e2);
+//		Evenement e3= new Evenement();
+//		e3.setId("1");
+//		e3.setNameEvenement("toto");
+//		listeWs2.add(e3);
 		listeEvenementsFinale.addAll(listeWs2);
 
 		return listeEvenementsFinale;
