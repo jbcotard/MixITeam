@@ -121,7 +121,7 @@ public class EvenementCore
 		// ws1
 		// evenement = search id sur ws1
 		// ws2
-		// evenement = search id sur ws1
+		// evenement = search id sur ws2
 
 
 		return evenement;
