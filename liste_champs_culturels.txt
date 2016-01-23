@@ -1,0 +1,40 @@
+URL Acces : 
+
+<path_uri> -> http://wcf.tourinsoft.com/Syndication/3.0/cdt72/969e24f9-75a2-4cc6-a46c-db1f6ebbfe97/Objects?$format=json
+
+Liste des champs dispos : 
+	- SyndicObjectName
+	- GmapLatitude
+	- GmapLongitude
+	- CommMail
+	- Commune
+	- Tarifs
+	- Equipements
+    - Adresse2
+    - CommWeb
+    - NomOffre
+    - plateformeURL
+    - Type
+    - Cedex
+    - Adresse1
+    - Adresse3
+    - Services
+    - CommTel
+    - CodePostal
+    - ModePaiement
+    - Adresse1Suite
+    - TarifGratuit
+    - Acces
+    - OuvertureGranule
+
+<path_select> -> <path_uri>&$select=SyndicObjectName,GmapLatitude,GmapLongitude,CommMail,Commune,Tarifs,Equipements,Adresse2,CommWeb,NomOffre,plateformeURL,Type,Cedex,Adresse1,Adresse3,Services,CommTel,CodePostal,ModePaiement,Adresse1Suite,TarifGratuit,AccesOuvertureGranule
+
+
+Liste des champs utiliser pour le filtrage
+  - Commune -> <path_select>&$filter=Commune eq 'Le Mans'  -  <path_select>&$filter=indexof(Commune,'Mans') gt -1  
+  - NomOffre -> <path_select>&$filter=NomOffre eq 'THEATRE : "DE QUOI PARLEZ-VOUS ?"'  -  <path_select>&$filter=indexof(NomOffre,'parlez') gt -1  
+  - TarifGratuit (valeurs possibles : null-true-false) ->  <path_select>&$filter=(TarifGratuit eq null or TarifGratuit eq false)
+  - Type : <path_select>&$filter=indexof(Type,'Activités sportives') gt -1
+  
+  
+Exemples complexes : <path_select>&$filter=(TarifGratuit eq null or TarifGratuit eq false) and indexof(Commune ,'Mans') gt -1
