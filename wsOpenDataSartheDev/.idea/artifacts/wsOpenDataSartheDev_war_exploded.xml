@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="wsOpenDataSartheDev:war exploded">
+    <output-path>$PROJECT_DIR$/target/wsopendatasarthedev</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="wsOpenDataSartheDev" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/wsopendatasarthedev/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="wsOpenDataSartheDev/web/Web" />
+    </root>
+  </artifact>
+</component>
