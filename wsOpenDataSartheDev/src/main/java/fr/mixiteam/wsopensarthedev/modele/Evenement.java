@@ -1,37 +1,53 @@
 package fr.mixiteam.wsopensarthedev.modele;
 
 public class Evenement {
-	int id;
-	String name;
+	String id;
+	String nameEvenement;
+	String commune;
 	
 	
+
+	@Override
+	public String toString() {
+		return "Evenement [id=" + id + ", nameEvenement=" + nameEvenement
+				+ ", commune=" + commune + "]";
+	}
 
 	public Evenement() {
 		super();
 	}
 
-	public Evenement(int id, String name) {
+	public Evenement(String id, String nameEvenement,String commune) {
 		super();
 		this.id = id;
-		this.name = name;
+		this.nameEvenement = nameEvenement;
+		this.commune=commune;
 	}
 
-	public void setId(int i) {
-		// TODO Auto-generated method stub
+	public void setId(String i) {
+		id=i;
 		
 	}
 
-	public void setName(String string) {
-		// TODO Auto-generated method stub
+	public void setNameEvenement(String name) {
+		nameEvenement=name;
 		
 	}
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public String getName() {
-		return name;
+	public String getNameEvenement() {
+		return nameEvenement;
+	}
+
+	public String getCommune() {
+		return commune;
+	}
+
+	public void setCommune(String commune) {
+		this.commune = commune;
 	}
 	
 	
