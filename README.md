@@ -26,3 +26,7 @@ http://localhost:8080/wsopendatasarthedev/rservice/Evenements/{id}
 
 
 {"id":"ASCPDL072V50118Q","nameEvenement":"SAOSNOIS EQUITATION","commune":"MAMERS","longitude":"0.36657519","tel":"null","codepotal":null,"tarif":"null","adresse":" Rue Verte","equipement":"null","lattitude":"48.3582645","codePostal":"72600","modePaiement":"<img alt=\"ChÃ¨ques bancaires et postaux\" title=\"ChÃ¨ques bancaires et postaux\" src=\"http://cdt72.media.tourinsoft.eu/upload/cheque.png\" />","tarifGratuit":"null","acces":"null","ouverture":"null","mail":"null","site":"null","reseauSociaux":"null","entreprise":"SAOSNOIS EQUITATION","services":"null"}
+
+## url note
+
+http://localhost:8080/wsopendatasarthedev/rservice/Evenements/note/{id}/{note}
