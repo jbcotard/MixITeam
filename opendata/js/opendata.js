@@ -2,7 +2,7 @@
 (
 	function()
 	{
-		var env = "dev";
+		var env = "prod";
 		
 		if(env == "dev") {
 			var tagUrl = "http://localhost/opendata/php/test.php";
@@ -262,34 +262,31 @@ function getDetailedSelection(url, env, id) {
 	}
 	
 	$.get(url, function(json) {
-			var windowWidth = $(window).width();
-			divWidth = parseInt(windowWidth) - 996;
 			var html = "<td colspan='4' style='padding:0px;'>\
 				<blockquote style='margin:0px;font-size:13px;height:460px;'>\
-					<div style='float:left;width:"+divWidth+"px;border:1px solid white;word-wrap: break-word;'>\
-						<span><b>id:</b>"+json.id+"</span><br />\
-						<span><b>nameEvenement:</b>"+json.nameEvenement+"</span><br />\
-						<span><b>tel:</b>"+json.tel+"</span><br />\
-						<span><b>mail:</b>"+json.mail+"</span><br />\
-						<span><b>site:</b>"+json.site+"</span><br />\
-						<span><b>reseauSociaux:</b>"+json.reseauSociaux+"</span><br />\
-						<span><b>ouverture:</b>"+json.ouverture+"</span><br />\
-						<span><b>equipement:</b>"+json.equipement+"</span><br />\
-						<span><b>services:</b>"+json.services+"</span><br />\
-						<span><b>entreprise:</b>"+json.entreprise+"</span><br />\
-						<span><b>adresse:</b>"+json.adresse+"</span><br />\
-						<span><b>commune:</b>"+json.commune+"</span><br />\
-						<span><b>codepostal:</b>"+json.codePostal+"</span><br />\
-						<span><b>acces:</b>"+json.acces+"</span><br />\
-						<span><b>longitude:</b>"+json.longitude+"</span><br />\
-						<span><b>lattitude:</b>"+json.lattitude+"</span><br />\
-						<span><b>tarif:</b>"+json.tarif+"</span><br />\
-						<span><b>tarifGratuit:</b>"+json.tarifGratuit+"</span><br />\
-						<span><b>modePaiement:</b>"+json.modePaiement+"</span><br />\
-					</div>\
-					<div style='width:402px;border:1px solid white;margin-left:12px;float:left;margin-top:38px;'>\
-					"+json.cartOsm+"\
-					</div>\
+					<table><tr><td>\
+							<span><b>id:</b>"+json.id+"</span><br />\
+							<span><b>nameEvenement:</b>"+json.nameEvenement+"</span><br />\
+							<span><b>tel:</b>"+json.tel+"</span><br />\
+							<span><b>mail:</b>"+json.mail+"</span><br />\
+							<span><b>site:</b>"+json.site+"</span><br />\
+							<span><b>reseauSociaux:</b>"+json.reseauSociaux+"</span><br />\
+							<span><b>ouverture:</b>"+json.ouverture+"</span><br />\
+							<span><b>equipement:</b>"+json.equipement+"</span><br />\
+							<span><b>services:</b>"+json.services+"</span><br />\
+							<span><b>entreprise:</b>"+json.entreprise+"</span><br />\
+							<span><b>adresse:</b>"+json.adresse+"</span><br />\
+							<span><b>commune:</b>"+json.commune+"</span><br />\
+							<span><b>codepostal:</b>"+json.codePostal+"</span><br />\
+							<span><b>acces:</b>"+json.acces+"</span><br />\
+							<span><b>longitude:</b>"+json.longitude+"</span><br />\
+							<span><b>lattitude:</b>"+json.lattitude+"</span><br />\
+							<span><b>tarif:</b>"+json.tarif+"</span><br />\
+							<span><b>tarifGratuit:</b>"+json.tarifGratuit+"</span><br />\
+							<span><b>modePaiement:</b>"+json.modePaiement+"</span><br />\
+						</td><td>\
+						"+json.cartOsm+"\
+						</td></tr>\
 				</blockquote>\
 			</td>";
 
