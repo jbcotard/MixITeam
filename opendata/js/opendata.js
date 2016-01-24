@@ -2,7 +2,7 @@
 (
 	function()
 	{
-		var env = "prod";
+		var env = "dev";
 		
 		if(env == "dev") {
 			var tagUrl = "http://localhost/opendata/php/test.php";
@@ -262,9 +262,11 @@ function getDetailedSelection(url, env, id) {
 	}
 	
 	$.get(url, function(json) {
+			var windowWidth = $(window).width();
+			divWidth = parseInt(windowWidth) - 1050;
 			var html = "<td colspan='4' style='padding:0px;'>\
 				<blockquote style='margin:0px;font-size:13px;height:460px;'>\
-					<div style='float:left;width:400px;'>\
+					<div style='float:left;width:"+divWidth+"px;'>\
 						<span><b>id:</b>"+json.id+"</span><br />\
 						<span><b>nameEvenement:</b>"+json.nameEvenement+"</span><br />\
 						<span><b>tel:</b>"+json.tel+"</span><br />\
@@ -296,6 +298,6 @@ function getDetailedSelection(url, env, id) {
 }
 
 function setNotation(url, id, notation) {
-	var urlNote = url+"/"+id+"/"+notation;
+	var urlNote = url + id+"/"+notation;
 	$.get(urlNote, function() {});
 }
