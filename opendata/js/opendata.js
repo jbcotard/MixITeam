@@ -297,5 +297,5 @@ function getDetailedSelection(url, env, id) {
 
 function setNotation(url, id, notation) {
 	var urlNote = url+"/"+id+"/"+notation;
-	$.get(url, function() {});
+	$.get(urlNote, function() {});
 }
