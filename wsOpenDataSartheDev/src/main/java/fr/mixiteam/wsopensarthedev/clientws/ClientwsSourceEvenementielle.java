@@ -101,7 +101,7 @@ public class ClientwsSourceEvenementielle {
 			method.getParams().setParameter(HttpMethodParams.RETRY_HANDLER,
 					new DefaultHttpMethodRetryHandler(3, false));
 
-			method.setQueryString(URIUtil.encodeQuery("$format=json&$select=NomOffre,Commune,SyndicStructureId&$filter=indexof(Categorie/ThesLibelle,'"+type+"') gt -1 "));
+			method.setQueryString(URIUtil.encodeQuery("$format=json&$select=NomOffre,Commune,SyndicObjectID&$filter=indexof(Categorie/ThesLibelle,'"+type+"') gt -1 "));
 
 			// Execute the method.
 			int statusCode = client.executeMethod(method);
