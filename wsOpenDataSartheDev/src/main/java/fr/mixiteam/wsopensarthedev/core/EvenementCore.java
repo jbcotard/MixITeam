@@ -1,9 +1,6 @@
 package fr.mixiteam.wsopensarthedev.core;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 
 import fr.mixiteam.wsopensarthedev.clientws.ClientwsSourceCulturel;
@@ -89,6 +86,17 @@ public class EvenementCore
 		//requete de recherche des events � tous les ws par type
 		List<Evenement> listeEvenementsFinale = new ArrayList<Evenement>();
 
+
+		// gestion du caractere a la con
+
+		if (type.contains("Cale")) {
+			type = "Cale";
+		}
+
+		if (type.contains("Brocante")) {
+			type = "Brocantes";
+		}
+
 		//ws1
 		List<Evenement> listeWs1 = ClientwsSourceEvenementielle.getListeActivite(type);
 //		Evenement e1= new Evenement();
@@ -136,6 +144,62 @@ public class EvenementCore
 		// ws2
 		if (evenement == null || evenement.getId() == null ) {
 			evenement = ClientwsSourceCulturel.getEvenementDetail(id);
+		}
+
+		// traitement amelioration equipement
+		if (evenement.getEquipement() != null) {
+			evenement.setEquipement(evenement.getEquipement().replace("#",""));
+		}
+
+		// traitement amelioration modePaiement
+		if (evenement.getModePaiement() != null) {
+			evenement.setModePaiement(evenement.getModePaiement().replace("#",""));
+		}
+
+		// traitement amelioration acces
+		if (evenement.getAcces() != null) {
+			evenement.setAcces(evenement.getAcces().replace("#",""));
+			evenement.setAcces(evenement.getAcces().replace("|",""));
+		}
+
+		// traitement amelioration reseauSociaux
+		if (evenement.getReseauSociaux() != null) {
+			StringTokenizer st = new StringTokenizer(evenement.getReseauSociaux(), "##");
+			StringBuilder stringBuilder = new StringBuilder();
+
+			while (st.hasMoreElements()) {
+				//System.out.println(st.nextElement());
+				String img = ((String) st.nextElement());
+				if (img.indexOf("|") > 0) {
+				String url = img.substring(img.indexOf("|")+2, img.length());
+				stringBuilder.append("<a href=\"");
+				stringBuilder.append(url);
+				stringBuilder.append("\">");
+				stringBuilder.append(img.substring(0,img.indexOf("|")));
+				stringBuilder.append("</a>");}
+				else {
+					stringBuilder.append(img);
+				}
+
+			}
+			evenement.setReseauSociaux(stringBuilder.toString());
+
+		}
+
+		// traitement amelioration services
+		if (evenement.getServices() != null) {
+			evenement.setServices(evenement.getServices().replace("#",""));
+		}
+
+		// traitement amelioration site
+		if (evenement.getSite() != null) {
+			StringBuilder stringBuilder = new StringBuilder();
+			stringBuilder.append("<a href=\"");
+			stringBuilder.append(evenement.getSite() );
+			stringBuilder.append("\">");
+			stringBuilder.append(evenement.getSite() );
+			stringBuilder.append("</a>");
+			evenement.setSite(stringBuilder.toString());
 		}
 
 
