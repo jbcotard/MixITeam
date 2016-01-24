@@ -9,6 +9,7 @@ import java.util.Map;
 import fr.mixiteam.wsopensarthedev.clientws.ClientwsSourceCulturel;
 import fr.mixiteam.wsopensarthedev.clientws.ClientwsSourceEvenementielle;
 import fr.mixiteam.wsopensarthedev.modele.Evenement;
+import fr.mixiteam.wsopensarthedev.modele.EvenementDetails;
 import fr.mixiteam.wsopensarthedev.modele.TypeEvenement;
 
 /**
@@ -115,15 +116,17 @@ public class EvenementCore
 	 * @param id
 	 * @return
 	 */
-	public static Evenement getEvenement(String id) 
+	public static EvenementDetails getEvenement(String id)
 	{
 		// requete de tous les ws pour recuperer les infos de l'evenement
-		Evenement evenement = new Evenement(id, "toto","Le Mans");
+		EvenementDetails evenement = new EvenementDetails();
 
 		// ws1
-		// evenement = search id sur ws1
+		evenement = ClientwsSourceEvenementielle.getEvenementDetail(id);
 		// ws2
-		// evenement = search id sur ws2
+		if (evenement == null || evenement.getId() == null ) {
+			evenement = ClientwsSourceCulturel.getEvenementDetail(id);
+		}
 
 
 		return evenement;
