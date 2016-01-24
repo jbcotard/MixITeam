@@ -2,7 +2,7 @@
 (
 	function()
 	{
-		var env = "dev";
+		var env = "prod";
 		
 		if(env == "dev") {
 			var tagUrl = "http://localhost/opendata/php/test.php";
@@ -225,7 +225,7 @@ function getSelectionResultsFromTagClick(url, env, tag) {
 			var tarifGratuit = val.tarifGratuit;
 			var ouverture = val.ouverture;
 			var acces = val.acces;
-			var starOn = 2;
+			var starOn = val.note;
 			var starOff = 5 - starOn;
 			var notation = "";
 			var trColor = "white";
@@ -263,10 +263,10 @@ function getDetailedSelection(url, env, id) {
 	
 	$.get(url, function(json) {
 			var windowWidth = $(window).width();
-			divWidth = parseInt(windowWidth) - 1050;
+			divWidth = parseInt(windowWidth) - 992;
 			var html = "<td colspan='4' style='padding:0px;'>\
-				<blockquote style='margin:0px;font-size:13px;height:460px;'>\
-					<div style='float:left;width:"+divWidth+"px;'>\
+				<blockquote style='margin:0px;font-size:13px;height:460px;border:1px solid red;'>\
+					<div style='float:left;width:"+divWidth+"px;border:1px solid green;'>\
 						<span><b>id:</b>"+json.id+"</span><br />\
 						<span><b>nameEvenement:</b>"+json.nameEvenement+"</span><br />\
 						<span><b>tel:</b>"+json.tel+"</span><br />\
@@ -287,7 +287,7 @@ function getDetailedSelection(url, env, id) {
 						<span><b>tarifGratuit:</b>"+json.tarifGratuit+"</span><br />\
 						<span><b>modePaiement:</b>"+json.modePaiement+"</span><br />\
 					</div>\
-					<div style='height:440px;margin-left:32px;float:left;border-left:4px solid #808080;padding-left:32px;'>\
+					<div style='width:402px;border:0px solid red;margin-left:12px;float:left;margin-top:38px;'>\
 					"+json.cartOsm+"\
 					</div>\
 				</blockquote>\
