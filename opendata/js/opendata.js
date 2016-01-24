@@ -2,7 +2,7 @@
 (
 	function()
 	{
-		var env = "dev";
+		var env = "prod";
 		
 		if(env == "dev") {
 			var tagUrl = "http://localhost/opendata/php/test.php";
