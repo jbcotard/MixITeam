@@ -8,6 +8,7 @@ import java.util.Map;
 
 import fr.mixiteam.wsopensarthedev.clientws.ClientwsSourceCulturel;
 import fr.mixiteam.wsopensarthedev.clientws.ClientwsSourceEvenementielle;
+import fr.mixiteam.wsopensarthedev.hsql.Notes;
 import fr.mixiteam.wsopensarthedev.modele.Evenement;
 import fr.mixiteam.wsopensarthedev.modele.EvenementDetails;
 import fr.mixiteam.wsopensarthedev.modele.TypeEvenement;
@@ -108,6 +109,15 @@ public class EvenementCore
 //		listeWs2.add(e3);
 		listeEvenementsFinale.addAll(listeWs2);
 
+		// ajout de la note
+		Notes noteService = new Notes();
+		for (Evenement evenement : listeEvenementsFinale) {
+			int note = noteService.getNote(evenement.getId());
+			if (note > 0) {
+				evenement.setNote(note);
+			}
+		}
+
 		return listeEvenementsFinale;
 	}
 
@@ -132,4 +142,13 @@ public class EvenementCore
 		return evenement;
 	}
 
+	/**
+	 * enregistrement de la note pour un evenement.
+	 * @param id
+	 * @param note
+     */
+	public static void saveNote(String id, int note) {
+		Notes noteService = new Notes();
+		noteService.setNote(id,note);
+	}
 }

@@ -127,12 +127,7 @@ function getJSONData() {
 				}
 				resultLi += Labels;
 			}
-			
 			items.push(resultLi + "</li>");
-			
-			
-			
-			
 		});
  
 		$( "<ul/>", {
