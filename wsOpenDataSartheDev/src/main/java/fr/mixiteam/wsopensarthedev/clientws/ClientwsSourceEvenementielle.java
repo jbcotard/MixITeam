@@ -126,7 +126,7 @@ public class ClientwsSourceEvenementielle {
 				JSONObject item = (JSONObject) data.get(i);
 				
 				Evenement evenement=new Evenement();
-				evenement.setId(String.valueOf(item.get("SyndicStructureId")));
+				evenement.setId(String.valueOf(item.get("SyndicObjectID")));
 				evenement.setCommune(String.valueOf(item.get("Commune")));
 				evenement.setNameEvenement(String.valueOf(item.get("NomOffre")));
 
