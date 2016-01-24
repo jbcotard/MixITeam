@@ -2,7 +2,7 @@
 (
 	function()
 	{
-		var env = "prod";
+		var env = "dev";
 		
 		if(env == "dev") {
 			var tagUrl = "http://localhost/opendata/php/test.php";
@@ -263,10 +263,10 @@ function getDetailedSelection(url, env, id) {
 	
 	$.get(url, function(json) {
 			var windowWidth = $(window).width();
-			divWidth = parseInt(windowWidth) - 992;
+			divWidth = parseInt(windowWidth) - 996;
 			var html = "<td colspan='4' style='padding:0px;'>\
-				<blockquote style='margin:0px;font-size:13px;height:460px;border:1px solid red;'>\
-					<div style='float:left;width:"+divWidth+"px;border:1px solid green;'>\
+				<blockquote style='margin:0px;font-size:13px;height:460px;'>\
+					<div style='float:left;width:"+divWidth+"px;border:1px solid white;word-wrap: break-word;'>\
 						<span><b>id:</b>"+json.id+"</span><br />\
 						<span><b>nameEvenement:</b>"+json.nameEvenement+"</span><br />\
 						<span><b>tel:</b>"+json.tel+"</span><br />\
@@ -287,7 +287,7 @@ function getDetailedSelection(url, env, id) {
 						<span><b>tarifGratuit:</b>"+json.tarifGratuit+"</span><br />\
 						<span><b>modePaiement:</b>"+json.modePaiement+"</span><br />\
 					</div>\
-					<div style='width:402px;border:0px solid red;margin-left:12px;float:left;margin-top:38px;'>\
+					<div style='width:402px;border:1px solid white;margin-left:12px;float:left;margin-top:38px;'>\
 					"+json.cartOsm+"\
 					</div>\
 				</blockquote>\
