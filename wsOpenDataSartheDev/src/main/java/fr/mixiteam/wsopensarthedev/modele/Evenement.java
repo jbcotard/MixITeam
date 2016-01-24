@@ -7,7 +7,8 @@ public class Evenement {
 	Integer note;
 
 	public Evenement() {
-		super();
+
+		this.note = Integer.valueOf(0);
 	}
 
 	public Evenement(String id, String nameEvenement,String commune) {
