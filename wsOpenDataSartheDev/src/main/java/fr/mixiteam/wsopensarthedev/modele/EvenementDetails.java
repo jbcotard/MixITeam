@@ -29,6 +29,7 @@ public class EvenementDetails {
 	String site;
 	String reseauSociaux;
 	String equipement;
+	private String videosUrl;
 
 	public String getLattitude() {
 		return lattitude;
@@ -126,6 +127,15 @@ public class EvenementDetails {
 		this.ouverture = ouverture;
 	}
 
+	public String getCartOsm() {
+		
+		String iframe = "<iframe width=\"400\" height=\"350\" frameborder=\"0\" scrolling=\"no\"" +
+		"marginheight=\"0\" marginwidth=\"0\" src=\"http://cartosm.eu/map?"
+				+ "lon=" + getLongitude()
+		+ "&lat=" + getLattitude()
+		+ "&zoom=14&width=400&height=350&mark=true&nav=true&pan=true&zb=inout&style=default&icon=down\"></iframe>";
+		return iframe;
+	}
 
 	@Override
 	public String toString() {
@@ -136,7 +146,8 @@ public class EvenementDetails {
 				+ ", Tel=" + tel + ", services=" + services
 				+ ", codePostal=" + codePostal + ", modePaiement="
 				+ modePaiement + ", tarifGratuit=" + tarifGratuit + ", acces="
-				+ acces + ", ouverture=" + ouverture + "]";
+				+ acces + ", ouverture=" + ouverture + ",VideosUrl=" + videosUrl
+				+ ",cartOsm=" + getCartOsm() + "]";
 	}
 
 	public EvenementDetails() {
@@ -206,6 +217,13 @@ public class EvenementDetails {
 
 	public void setEntreprise(String entreprise) {
 		this.entreprise = entreprise;
+	}
+
+	public String getVideosUrl() {
+		return videosUrl;
+	}
+	public void setVideoUrl(String videosUrl) {
+		this.videosUrl = videosUrl;
 	}
 
 	

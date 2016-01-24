@@ -10,13 +10,17 @@ public class TestWs {
 	@GET
 	@Path("testEV")
 	public String test() {
+		//ASC878000823
+		//FMA072878000016
 		return ClientwsSourceEvenementielle.getEvenementDetail("FMA072878000016").toString();
 	}
 
 	@GET
 	@Path("testCu")
 	public String testCU() {
-		return ClientwsSourceCulturel.getEvenementDetail("ASC1081000051x").toString();
+		// ASC878000823
+		// ASC1081000051
+		return ClientwsSourceCulturel.getEvenementDetail("ASC878000823").toString();
 	}	
 	
 	

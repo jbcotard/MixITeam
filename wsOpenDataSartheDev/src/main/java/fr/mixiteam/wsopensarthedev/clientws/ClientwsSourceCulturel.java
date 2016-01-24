@@ -64,7 +64,7 @@ public class ClientwsSourceCulturel {
 
 				
 				if (!type.equals("null")) {
-					//Separation des types contenant une liste separée par des ##
+					//Separation des types contenant une liste separï¿½e par des ##
 					if(type.contains("##")){						
 						String[] typePrecis=type.split("##");
 						for(int j=0;j<typePrecis.length;j++)
@@ -176,7 +176,7 @@ public class ClientwsSourceCulturel {
 			
 			method.setQueryString(URIUtil.encodeQuery("$format=json&$select=SyndicObjectID,SyndicObjectName,GmapLatitude,GmapLongitude,CommMail,Commune,Tarifs,"
 					+ "Equipements,Adresse2,CommWeb,NomOffre,plateformeURL,Type,Cedex,Adresse1,Adresse3,Services,CommTel,CodePostal,ModePaiement,"
-					+ " Adresse1Suite,TarifGratuit,Acces,OuvertureGranule&$filter=SyndicObjectID eq '"+id+"'"));
+					+ " Adresse1Suite,TarifGratuit,Acces,OuvertureGranule,VideosUrl&$filter=SyndicObjectID eq '"+id+"'"));
 
 			// Execute the method.
 			int statusCode = client.executeMethod(method);
@@ -252,6 +252,9 @@ public class ClientwsSourceCulturel {
 				evenement.setAcces(String.valueOf(item.get("Acces")));
 				evenement.setOuverture(String.valueOf(item
 						.get("OuvertureGranule")));
+				
+				evenement.setVideoUrl(String.valueOf(item
+						.get("VideosUrl")));
 				
 				System.out.println(evenement.toString());
 			}
