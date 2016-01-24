@@ -12,6 +12,7 @@ import javax.ws.rs.core.MediaType;
 
 import fr.mixiteam.wsopensarthedev.core.EvenementCore;
 import fr.mixiteam.wsopensarthedev.modele.Evenement;
+import fr.mixiteam.wsopensarthedev.modele.EvenementDetails;
 import fr.mixiteam.wsopensarthedev.modele.TypeEvenement;
 
 
@@ -32,7 +33,7 @@ public class EvenementService {
 
 	@GET
 	@Path("/{id}/")
-	public Evenement getEvenement(@PathParam("id") String id) 
+	public EvenementDetails getEvenement(@PathParam("id") String id)
 	{
 		return EvenementCore.getEvenement(id);
 	}

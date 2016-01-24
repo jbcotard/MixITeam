@@ -4,14 +4,7 @@ public class Evenement {
 	String id;
 	String nameEvenement;
 	String commune;
-	
-	
-
-	@Override
-	public String toString() {
-		return "Evenement [id=" + id + ", nameEvenement=" + nameEvenement
-				+ ", commune=" + commune + "]";
-	}
+	Integer note;
 
 	public Evenement() {
 		super();
@@ -22,6 +15,7 @@ public class Evenement {
 		this.id = id;
 		this.nameEvenement = nameEvenement;
 		this.commune=commune;
+		this.note = Integer.valueOf(0);
 	}
 
 	public void setId(String i) {
@@ -49,7 +43,25 @@ public class Evenement {
 	public void setCommune(String commune) {
 		this.commune = commune;
 	}
-	
-	
 
+
+
+	public Integer getNote() {
+		return note;
+	}
+
+	public void setNote(Integer note) {
+		this.note = note;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Evenement{" +
+				"id='" + id + '\'' +
+				", nameEvenement='" + nameEvenement + '\'' +
+				", commune='" + commune + '\'' +
+				", note=" + note +
+				'}';
+	}
 }
