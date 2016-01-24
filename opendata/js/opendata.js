@@ -11,7 +11,7 @@
 		} else {
 			var tagUrl = "http://localhost:8080/wsopendatasarthedev/rservice/Evenements/typeEvenements";
 			var tagClickedUrl = "http://localhost:8080/wsopendatasarthedev/rservice/Evenements/search/";
-			var selectionUrl = "http://localhost:8080/wsopendatasarthedev/rservice/Evenements/note/";
+			var selectionNoteUrl = "http://localhost:8080/wsopendatasarthedev/rservice/Evenements/note/";
 			var selectionDetailUrl = "http://localhost:8080/wsopendatasarthedev/rservice/Evenements/";
 		}
 		
@@ -125,6 +125,7 @@
 				for(var i=1; i<position+1; i++) {
 					$("img[app-starId="+id+"][app-starPosition="+i+"]").attr("src","img/star_on.png");
 				}
+				setNotation(selectionNoteUrl, id, position);
 			}
 		);
 		
@@ -144,7 +145,7 @@
 					$(this).attr("app-state","closed");
 				}
 				
-				getDetailedSelection(selectionDetailUrl, id);
+				getDetailedSelection(selectionDetailUrl, env, id);
 			}
 		);
 	}
