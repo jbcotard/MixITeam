@@ -108,17 +108,38 @@
 	<build>
 		<finalName>wsopendatasarthedev</finalName>
 <plugins>
-		<plugin>
-			<groupId>org.apache.tomcat.maven</groupId>
-			<artifactId>tomcat7-maven-plugin</artifactId>
-			<version>2.0</version>
+		<!--<plugin>-->
+			<!--<groupId>org.apache.tomcat.maven</groupId>-->
+			<!--<artifactId>tomcat7-maven-plugin</artifactId>-->
+			<!--<version>2.0</version>-->
+			<!--<configuration>-->
+				<!--<url>http://localhost:8080/manager/html</url>-->
+				<!--<path>/wsopendatasarthedev</path>-->
+				<!--<server>tomcat7</server>-->
+				<!--<username>tomcat</username>-->
+				<!--<password>tomcat</password>-->
+			<!--</configuration>-->
+		<!--</plugin>-->
+	<plugin>
+		<groupId>org.codehaus.cargo</groupId>
+		<artifactId>cargo-maven2-plugin</artifactId>
+		<version>1.4.4</version>
+		<configuration>
+			<container>
+				<containerId>tomcat7x</containerId>
+				<type>remote</type>
+			</container>
 			<configuration>
-				<url>http://localhost:8080/manager/text</url>
-				<path>/wsopendatasarthedev</path>
-				<username>tomcat</username>
-				<password>tomcat</password>
+				<type>runtime</type>
+				<properties>
+					<cargo.hostname>localhost</cargo.hostname>
+					<cargo.servlet.port>8080</cargo.servlet.port>
+					<cargo.remote.username>tomcat</cargo.remote.username>
+					<cargo.remote.password>tomcat</cargo.remote.password>
+				</properties>
 			</configuration>
-		</plugin>
+		</configuration>
+	</plugin>
 </plugins>
 	</build>
 </project>
