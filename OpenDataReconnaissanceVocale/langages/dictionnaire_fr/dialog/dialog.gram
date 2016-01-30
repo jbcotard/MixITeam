@@ -1,0 +1,15 @@
+#JSGF V1.0;
+
+grammar dialog;
+
+public <command> = piscine    |
+          spectacle  |
+          exposition   |
+          cirque   |
+          patinoire |
+          hippodrome  |
+          festival  |
+          golf |
+          labyrinthe |
+          concert  ;
+		  
